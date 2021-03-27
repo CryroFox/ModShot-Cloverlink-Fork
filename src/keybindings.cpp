@@ -101,6 +101,17 @@ static const KbBindingData defaultKbBindings[] =
 	{ SDL_SCANCODE_C,      Input::Deactivate },
 	{ SDL_SCANCODE_Q,      Input::L          },
 	{ SDL_SCANCODE_W,      Input::R          },
+
+	// Cloverlink keybinds
+
+	{ SDL_SCANCODE_LALT,  Input::Chat	   	 },
+	{ SDL_SCANCODE_TAB,	  Input::ToggleChat	 },
+	{ SDL_SCANCODE_M,	  Input::Map	   	 },
+	{ SDL_SCANCODE_F10,	  Input::Playing	 },
+	{ SDL_SCANCODE_0,  	  Input::E0			 },
+	{ SDL_SCANCODE_1,  	  Input::E1			 },
+	{ SDL_SCANCODE_2,  	  Input::E2			 },
+	{ SDL_SCANCODE_3,  	  Input::E3			 },
 };
 
 static elementsN(defaultKbBindings);
@@ -226,7 +237,8 @@ static bool verifyDesc(const BindingDesc &desc)
 	    Input::Run,
 	    Input::Deactivate,
 	    Input::L, Input::R,
-	    Input::F5, Input::F6, Input::F7, Input::F8, Input::F9
+	    Input::F5, Input::F6, Input::F7, Input::F8, Input::F9,
+		Input::Chat, Input::ToggleChat, Input::Map, Input::Playing,
 	};
 
 	elementsN(codes);

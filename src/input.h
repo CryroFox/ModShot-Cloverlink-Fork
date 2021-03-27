@@ -53,6 +53,9 @@ public:
 		/* Non-standard extensions */
 		MouseLeft = 38, MouseMiddle = 39, MouseRight = 40,
 
+		/* Cloverlink Keybinds	*/
+		Chat = 41, ToggleChat = 42, Map = 43, Playing = 44, E0 = 45, E1 = 46, E2 = 47, E3 = 48,
+
 		/* Non-standard SDL keycode extensions */
 #define DECLARE_SDL_KEYCODE_NORMAL(name) \
 	KEY_##name = SDLK_##name + BUTTONCODE_SDLK_OFFSET,

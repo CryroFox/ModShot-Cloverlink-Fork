@@ -40,16 +40,16 @@
 #include <algorithm>
 #include <assert.h>
 
-const Vec2i winSize(700, 500);
+const Vec2i winSize(700, 692);
 
 const uint8_t cBgNorm = 50;
 const uint8_t cBgDark = 20;
 const uint8_t cLine = 0;
 const uint8_t cText = 255;
 
-// const char *const fontFamilyLatin = "Terminus (TTF)";
-const char *const fontFamilyLatin = "WenQuanYi Micro Hei";
-const uint8_t fontSizeLatin = 12;
+const char *const fontFamilyLatin = "Terminus (TTF)";
+// const char *const fontFamilyLatin = "WenQuanYi Micro Hei";
+const uint8_t fontSizeLatin = 16;
 const char *const fontFamilyAsian = "WenQuanYi Micro Hei";
 const uint8_t fontSizeAsian = 16;
 
@@ -74,6 +74,11 @@ struct VButton
 	BTN_STRING(Cancel, TRSTR_KEYBIND_CANCEL),
 	BTN_STRING(Menu, TRSTR_KEYBIND_MENU),
 	BTN_STRING(L, TRSTR_KEYBIND_L),
+	
+	BTN_STRING(Chat, TRSTR_KEYBIND_CHAT),
+	BTN_STRING(Playing, TRSTR_KEYBIND_PLAYING),
+	BTN_STRING(E0, TRSTR_KEYBIND_E0),
+	BTN_STRING(E1, TRSTR_KEYBIND_E0),
 
 	BTN_STRING(Down, TRSTR_KEYBIND_DOWN),
 	BTN_STRING(Right, TRSTR_KEYBIND_RIGHT),
@@ -81,6 +86,11 @@ struct VButton
 	BTN_STRING(Deactivate, TRSTR_KEYBIND_DEACTIVATE),
 	BTN_STRING(Items, TRSTR_KEYBIND_ITEMS),
 	BTN_STRING(R, TRSTR_KEYBIND_R),
+
+	BTN_STRING(ToggleChat, TRSTR_KEYBIND_TOGGLECHAT),
+	BTN_STRING(Map, TRSTR_KEYBIND_MAP),
+	BTN_STRING(E2, TRSTR_KEYBIND_E0),
+	BTN_STRING(E3, TRSTR_KEYBIND_E0),
 };
 
 static elementsN(vButtons);
@@ -1090,7 +1100,7 @@ SettingsMenu::SettingsMenu(RGSSThreadData &rtData)
 	p->rgb = p->winSurf->format;
 
 	const size_t layoutW = 2;
-	const size_t layoutH = 6;
+	const size_t layoutH = 9;
 	assert(layoutW*layoutH == vButtonsN);
 
 	const int bWidgetW = winSize.x / layoutW;

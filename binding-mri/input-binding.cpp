@@ -190,7 +190,18 @@ static buttonCodes[] =
 	{ "MOUSELEFT",   Input::MouseLeft   },
 	{ "MOUSEMIDDLE", Input::MouseMiddle },
 	{ "MOUSERIGHT",  Input::MouseRight  },
+
+		// CLOVERLINK KEYBINDS
 	
+	{ "CHAT",		 Input::Chat		},
+	{ "TOGGLECHAT",	 Input::ToggleChat	},
+	{ "MAP",		 Input::Map			},
+	{ "PLAYING",	 Input::Playing		},
+	{ "E0",		 	 Input::E0			},
+	{ "E1",		 	 Input::E1			},
+	{ "E2",		 	 Input::E2			},
+	{ "E3",		 	 Input::E3			},
+
 	INPUT_DEF_BUTTONCODE(KEY_UNKNOWN)
 	INPUT_DEF_BUTTONCODE(KEY_BACKSPACE)
 	INPUT_DEF_BUTTONCODE(KEY_TAB)
