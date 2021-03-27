@@ -54,7 +54,7 @@ public:
 		MouseLeft = 38, MouseMiddle = 39, MouseRight = 40,
 
 		/* Cloverlink Keybinds	*/
-		Chat = 41, ToggleChat = 42, Map = 43, Playing = 44, E0 = 45, E1 = 46, E2 = 47, E3 = 48,
+		Chat = 41, ToggleChat = 42, Map = 43, Playing = 44, E0 = 45, E1 = 46, E2 = 47, E3 = 48, E4 = 49,
 
 		/* Non-standard SDL keycode extensions */
 #define DECLARE_SDL_KEYCODE_NORMAL(name) \

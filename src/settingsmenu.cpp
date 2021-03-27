@@ -40,7 +40,7 @@
 #include <algorithm>
 #include <assert.h>
 
-const Vec2i winSize(700, 692);
+const Vec2i winSize(1064, 564);
 
 const uint8_t cBgNorm = 50;
 const uint8_t cBgDark = 20;
@@ -49,7 +49,7 @@ const uint8_t cText = 255;
 
 const char *const fontFamilyLatin = "Terminus (TTF)";
 // const char *const fontFamilyLatin = "WenQuanYi Micro Hei";
-const uint8_t fontSizeLatin = 16;
+const uint8_t fontSizeLatin = 12;
 const char *const fontFamilyAsian = "WenQuanYi Micro Hei";
 const uint8_t fontSizeAsian = 16;
 
@@ -70,27 +70,27 @@ struct VButton
 {
 	BTN_STRING(Up, TRSTR_KEYBIND_UP),
 	BTN_STRING(Left, TRSTR_KEYBIND_LEFT),
+	BTN_STRING(Right, TRSTR_KEYBIND_RIGHT),
+	BTN_STRING(Down, TRSTR_KEYBIND_DOWN),
 	BTN_STRING(Action, TRSTR_KEYBIND_ACTION),
 	BTN_STRING(Cancel, TRSTR_KEYBIND_CANCEL),
+	{ Input:: ToggleChat, TRSTR_KEYBIND_TOGGLECHAT, "Hide chat" },
+
+	BTN_STRING(Items, TRSTR_KEYBIND_ITEMS),
 	BTN_STRING(Menu, TRSTR_KEYBIND_MENU),
 	BTN_STRING(L, TRSTR_KEYBIND_L),
-	
-	BTN_STRING(Chat, TRSTR_KEYBIND_CHAT),
-	BTN_STRING(Playing, TRSTR_KEYBIND_PLAYING),
-	BTN_STRING(E0, TRSTR_KEYBIND_E0),
-	BTN_STRING(E1, TRSTR_KEYBIND_E0),
-
-	BTN_STRING(Down, TRSTR_KEYBIND_DOWN),
-	BTN_STRING(Right, TRSTR_KEYBIND_RIGHT),
+	BTN_STRING(R, TRSTR_KEYBIND_R),
 	BTN_STRING(Run, TRSTR_KEYBIND_RUN),
 	BTN_STRING(Deactivate, TRSTR_KEYBIND_DEACTIVATE),
-	BTN_STRING(Items, TRSTR_KEYBIND_ITEMS),
-	BTN_STRING(R, TRSTR_KEYBIND_R),
+	BTN_STRING(Chat, TRSTR_KEYBIND_CHAT),
 
-	BTN_STRING(ToggleChat, TRSTR_KEYBIND_TOGGLECHAT),
 	BTN_STRING(Map, TRSTR_KEYBIND_MAP),
-	BTN_STRING(E2, TRSTR_KEYBIND_E0),
-	BTN_STRING(E3, TRSTR_KEYBIND_E0),
+	BTN_STRING(Playing, TRSTR_KEYBIND_PLAYING),
+	{ Input:: E0, TRSTR_KEYBIND_E0, "Emote 0" },
+	{ Input:: E1, TRSTR_KEYBIND_E0, "Emote 1" },
+	{ Input:: E2, TRSTR_KEYBIND_E0, "Emote 2" },
+	{ Input:: E3, TRSTR_KEYBIND_E0, "Emote 3" },
+	{ Input:: E4, TRSTR_KEYBIND_E0, "Emote 4" },
 };
 
 static elementsN(vButtons);
@@ -1099,8 +1099,8 @@ SettingsMenu::SettingsMenu(RGSSThreadData &rtData)
 
 	p->rgb = p->winSurf->format;
 
-	const size_t layoutW = 2;
-	const size_t layoutH = 9;
+	const size_t layoutW = 3;
+	const size_t layoutH = 7;
 	assert(layoutW*layoutH == vButtonsN);
 
 	const int bWidgetW = winSize.x / layoutW;

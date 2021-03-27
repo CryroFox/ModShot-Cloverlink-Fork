@@ -201,6 +201,7 @@ static buttonCodes[] =
 	{ "E1",		 	 Input::E1			},
 	{ "E2",		 	 Input::E2			},
 	{ "E3",		 	 Input::E3			},
+	{ "E4",		 	 Input::E4			},
 
 	INPUT_DEF_BUTTONCODE(KEY_UNKNOWN)
 	INPUT_DEF_BUTTONCODE(KEY_BACKSPACE)
