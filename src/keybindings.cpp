@@ -105,10 +105,11 @@ static const KbBindingData defaultKbBindings[] =
 	// Cloverlink keybinds
 
 	{ SDL_SCANCODE_TAB,  Input::Chat	   	 },
-	{ SDL_SCANCODE_LALT,	  Input::ToggleChat	 },
+	{ SDL_SCANCODE_LALT,  Input::ToggleChat	 },
 	{ SDL_SCANCODE_M,	  Input::Map	   	 },
 	{ SDL_SCANCODE_F10,	  Input::Playing	 },
-	{ SDL_SCANCODE_0,  	  Input::E0			 },
+	{ SDL_SCANCODE_RETURN, Input::MSG	 	 },
+	{ SDL_SCANCODE_KP_ENTER, Input::MSG	 	 },
 	{ SDL_SCANCODE_1,  	  Input::E1			 },
 	{ SDL_SCANCODE_2,  	  Input::E2			 },
 	{ SDL_SCANCODE_3,  	  Input::E3			 },

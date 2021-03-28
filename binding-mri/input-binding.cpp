@@ -197,7 +197,7 @@ static buttonCodes[] =
 	{ "TOGGLECHAT",	 Input::ToggleChat	},
 	{ "MAP",		 Input::Map			},
 	{ "PLAYING",	 Input::Playing		},
-	{ "E0",		 	 Input::E0			},
+	{ "SENDMSG",	 Input::MSG			},
 	{ "E1",		 	 Input::E1			},
 	{ "E2",		 	 Input::E2			},
 	{ "E3",		 	 Input::E3			},

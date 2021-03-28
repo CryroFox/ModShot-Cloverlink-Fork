@@ -86,11 +86,11 @@ struct VButton
 
 	BTN_STRING(Map, TRSTR_KEYBIND_MAP),
 	BTN_STRING(Playing, TRSTR_KEYBIND_PLAYING),
-	{ Input:: E0, TRSTR_KEYBIND_E0, "Emote 0" },
-	{ Input:: E1, TRSTR_KEYBIND_E0, "Emote 1" },
-	{ Input:: E2, TRSTR_KEYBIND_E0, "Emote 2" },
-	{ Input:: E3, TRSTR_KEYBIND_E0, "Emote 3" },
-	{ Input:: E4, TRSTR_KEYBIND_E0, "Emote 4" },
+	{ Input:: E1, TRSTR_KEYBIND_E1, "Emote 1" },
+	{ Input:: E2, TRSTR_KEYBIND_E2, "Emote 2" },
+	{ Input:: E3, TRSTR_KEYBIND_E3, "Emote 3" },
+	{ Input:: E4, TRSTR_KEYBIND_E4, "Emote 4" },
+	{ Input:: MSG, TRSTR_KEYBIND_MSG, "Send message" },
 };
 
 static elementsN(vButtons);
