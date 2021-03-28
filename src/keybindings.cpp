@@ -95,7 +95,6 @@ static const KbBindingData defaultKbBindings[] =
 	{ SDL_SCANCODE_X,      Input::Cancel     },
 	{ SDL_SCANCODE_ESCAPE, Input::Cancel     },
 	{ SDL_SCANCODE_A,      Input::Menu       },
-	{ SDL_SCANCODE_RETURN, Input::Menu       },
 	{ SDL_SCANCODE_S,      Input::Items      },
 	{ SDL_SCANCODE_LSHIFT, Input::Run        },
 	{ SDL_SCANCODE_C,      Input::Deactivate },
