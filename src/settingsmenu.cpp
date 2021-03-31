@@ -40,7 +40,7 @@
 #include <algorithm>
 #include <assert.h>
 
-const Vec2i winSize(1064, 564);
+const Vec2i winSize(1064, 628);
 
 const uint8_t cBgNorm = 50;
 const uint8_t cBgDark = 20;
@@ -75,6 +75,7 @@ struct VButton
 	BTN_STRING(Action, TRSTR_KEYBIND_ACTION),
 	BTN_STRING(Cancel, TRSTR_KEYBIND_CANCEL),
 	{ Input:: ToggleChat, TRSTR_KEYBIND_TOGGLECHAT, "Hide chat" },
+	BTN_STRING(Favorite, TRSTR_KEYBIND_FAVORITE),
 
 	BTN_STRING(Items, TRSTR_KEYBIND_ITEMS),
 	BTN_STRING(Menu, TRSTR_KEYBIND_MENU),
@@ -83,6 +84,7 @@ struct VButton
 	BTN_STRING(Run, TRSTR_KEYBIND_RUN),
 	BTN_STRING(Deactivate, TRSTR_KEYBIND_DEACTIVATE),
 	BTN_STRING(Chat, TRSTR_KEYBIND_CHAT),
+	{ Input:: Chat, 60, ""},
 
 	BTN_STRING(Map, TRSTR_KEYBIND_MAP),
 	BTN_STRING(Playing, TRSTR_KEYBIND_PLAYING),
@@ -91,6 +93,7 @@ struct VButton
 	{ Input:: E3, TRSTR_KEYBIND_E3, "Emote 3" },
 	{ Input:: E4, TRSTR_KEYBIND_E4, "Emote 4" },
 	{ Input:: MSG, TRSTR_KEYBIND_MSG, "Send message" },
+	{ Input:: MSG, 60, ""},
 };
 
 static elementsN(vButtons);
@@ -1100,7 +1103,7 @@ SettingsMenu::SettingsMenu(RGSSThreadData &rtData)
 	p->rgb = p->winSurf->format;
 
 	const size_t layoutW = 3;
-	const size_t layoutH = 7;
+	const size_t layoutH = 8;
 	assert(layoutW*layoutH == vButtonsN);
 
 	const int bWidgetW = winSize.x / layoutW;

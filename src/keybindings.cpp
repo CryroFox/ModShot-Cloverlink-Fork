@@ -109,6 +109,7 @@ static const KbBindingData defaultKbBindings[] =
 	{ SDL_SCANCODE_F10,	  Input::Playing	 },
 	{ SDL_SCANCODE_RETURN, Input::MSG	 	 },
 	{ SDL_SCANCODE_KP_ENTER, Input::MSG	 	 },
+	{ SDL_SCANCODE_F,	  Input::Favorite	 },
 	{ SDL_SCANCODE_1,  	  Input::E1			 },
 	{ SDL_SCANCODE_2,  	  Input::E2			 },
 	{ SDL_SCANCODE_3,  	  Input::E3			 },
