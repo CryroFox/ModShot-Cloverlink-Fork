@@ -18,6 +18,7 @@ jobs:
         run: |
           conan remote add eliza https://rkevin.jfrog.io/artifactory/api/conan/eliza;
           conan remote add bincrafters https://bincrafters.jfrog.io/artifactory/api/conan/public-conan;
+          conan remote add astrabit https://rkevin.jfrog.io/artifactory/api/conan/astrabit;
           conan config set general.revisions_enabled=1;
           setx CONAN_USE_ALWAYS_SHORT_PATHS 1;
           mkdir ${{ runner.temp }}\build
@@ -63,6 +64,7 @@ jobs:
           pip3 install conan
           conan remote add eliza https://rkevin.jfrog.io/artifactory/api/conan/eliza;
           conan remote add bincrafters https://bincrafters.jfrog.io/artifactory/api/conan/public-conan;
+          conan remote add astrabit https://rkevin.jfrog.io/artifactory/api/conan/astrabit;
           conan config set general.revisions_enabled=1;
           mkdir ${{ runner.temp }}/build
       - name: Cache conan dependencies
@@ -79,7 +81,7 @@ jobs:
       - name: Create dist folder
         run: |
           mkdir ${{ runner.temp }}/dist &&
-          ${{ github.workspace }}/make-linux-dist.sh ${{ runner.temp }}/build ${{ runner.temp }}/dist &&
+          ${{ github.workspace }}/scripts/shell/make-linux-dist.sh ${{ runner.temp }}/build ${{ runner.temp }}/dist &&
           cd ${{ runner.temp }}/dist &&
           tar czf ${{ runner.temp }}/modshot_${{ github.sha }}.tar.gz .
       - name: Upload artifact
