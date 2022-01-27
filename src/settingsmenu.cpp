@@ -79,9 +79,9 @@ struct VButton
 
 	BTN_STRING(Items, TRSTR_KEYBIND_ITEMS),
 	BTN_STRING(Menu, TRSTR_KEYBIND_MENU),
+
 	BTN_STRING(L, TRSTR_KEYBIND_L),
 	BTN_STRING(R, TRSTR_KEYBIND_R),
-	BTN_STRING(Run, TRSTR_KEYBIND_RUN),
 	BTN_STRING(Deactivate, TRSTR_KEYBIND_DEACTIVATE),
 	BTN_STRING(Chat, TRSTR_KEYBIND_CHAT),
 	{ Input:: Chat, 60, ""},
@@ -94,9 +94,9 @@ struct VButton
 	{ Input:: E4, TRSTR_KEYBIND_E4, "Emote 4" },
 	{ Input:: MSG, TRSTR_KEYBIND_MSG, "Send message" },
 	{ Input:: MSG, 60, ""},
-};
 
-static elementsN(vButtons);
+	{ Input:: L, TRSTR_KEYBIND_L, "Statistics" },
+	BTN_STRING(Settings, TRSTR_KEYBIND_SETTINGS),
 
 const char* getButtonName(int buttonId) {
 	switch (buttonId) {
@@ -543,7 +543,13 @@ struct SettingsMenuPrivate
 		{
 			dstRect.w = alignW;
 			dstRect.x = drawOff.x + x;
-			SDL_BlitScaled(txtSurf, 0, surf, &dstRect);
+
+			SDL_Rect srcRect;
+			srcRect.x = 0;
+			srcRect.y = 0;
+			srcRect.w = dstRect.w;
+			srcRect.h = txtSurf->h;
+			SDL_BlitSurface(txtSurf, &srcRect, surf, &dstRect);
 		}
 	}
 
@@ -986,7 +992,7 @@ void BindingWidget::clickHandler(int x, int y, uint8_t button)
 	if (cell == -1)
 		return;
 
-	p->onBWidgetCellClicked(src[cell], vb.str, button);
+	p->onBWidgetCellClicked(src[cell], findtext(vb.trstrId, vb.str), button);
 }
 
 int BindingWidget::cellIndex(int x, int y) const
@@ -1093,11 +1099,7 @@ SettingsMenu::SettingsMenu(RGSSThreadData &rtData)
 	p->winSurf = SDL_GetWindowSurface(p->window);
 	p->winID = SDL_GetWindowID(p->window);
 
-	if (getLocaleFamily() == LOCALE_FAMILY_ASIAN) {
-			p->font = shState->fontState().getFont(fontFamilyAsian, fontSizeAsian);
-	} else {
-			p->font = shState->fontState().getFont(fontFamilyLatin, fontSizeLatin);
-	}
+	p->font = shState->fontState().getFont(getFontName(), getFontSize());
 
 
 	p->rgb = p->winSurf->format;
