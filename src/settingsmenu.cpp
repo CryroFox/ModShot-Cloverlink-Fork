@@ -95,8 +95,8 @@ struct VButton
 	{ Input:: MSG, TRSTR_KEYBIND_MSG, "Send message" },
 	{ Input:: MSG, 60, ""},
 
-	{ Input:: L, TRSTR_KEYBIND_L, "Statistics" },
-	BTN_STRING(Settings, TRSTR_KEYBIND_SETTINGS),
+	{ Input:: L, TRSTR_KEYBIND_L, "Statistics" }
+}
 
 const char* getButtonName(int buttonId) {
 	switch (buttonId) {
