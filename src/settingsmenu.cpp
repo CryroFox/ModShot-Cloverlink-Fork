@@ -96,7 +96,7 @@ struct VButton
 	{ Input:: MSG, 60, ""},
 
 	{ Input:: L, TRSTR_KEYBIND_L, "Statistics" }
-}
+};
 
 const char* getButtonName(int buttonId) {
 	switch (buttonId) {
