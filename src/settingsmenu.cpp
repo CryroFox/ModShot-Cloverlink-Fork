@@ -98,6 +98,8 @@ struct VButton
 	{ Input:: L, TRSTR_KEYBIND_L, "Statistics" }
 };
 
+static elementsN(vButtons);
+
 const char* getButtonName(int buttonId) {
 	switch (buttonId) {
 		case 0:
