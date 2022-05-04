@@ -28,9 +28,9 @@
 	#include <errno.h>
 #endif
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 namespace syswm {
-#include <SDL2/SDL_syswm.h>
+#include <SDL_syswm.h>
 }
 
 #define NIKO_X (320 - 16)

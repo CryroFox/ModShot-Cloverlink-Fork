@@ -23,10 +23,10 @@
 #define GLFUN_H
 
 #ifdef GLES2_HEADER
-#include <SDL2/SDL_opengles2.h>
+#include <SDL_opengles2.h>
 #define APIENTRYP GL_APIENTRYP
 #else
-#include <SDL2/SDL_opengl.h>
+#include <SDL_opengl.h>
 #endif
 
 /* Etc */

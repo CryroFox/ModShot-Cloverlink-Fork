@@ -27,7 +27,7 @@
 	#include <string>
 #endif
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 #define BUFFER_SIZE 256
 
