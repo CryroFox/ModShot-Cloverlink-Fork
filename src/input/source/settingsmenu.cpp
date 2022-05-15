@@ -39,6 +39,7 @@
 
 #include <algorithm>
 #include <assert.h>
+#include "debugwriter.h"
 
 const Vec2i winSize(1064, 628);
 
@@ -68,34 +69,33 @@ struct VButton
 	const char *str;
 } static const vButtons[] =
 {
-	BTN_STRING(Up, TRSTR_KEYBIND_UP),
-	BTN_STRING(Left, TRSTR_KEYBIND_LEFT),
-	BTN_STRING(Right, TRSTR_KEYBIND_RIGHT),
-	BTN_STRING(Down, TRSTR_KEYBIND_DOWN),
-	BTN_STRING(Action, TRSTR_KEYBIND_ACTION),
-	BTN_STRING(Cancel, TRSTR_KEYBIND_CANCEL),
-	{ Input:: ToggleChat, TRSTR_KEYBIND_TOGGLECHAT, "Hide chat" },
-	BTN_STRING(Favorite, TRSTR_KEYBIND_FAVORITE),
+	BTN_STRING(Up, TRSTR_KEYBIND_UP), // 1
+	BTN_STRING(Left, TRSTR_KEYBIND_LEFT), // 2
+	BTN_STRING(Right, TRSTR_KEYBIND_RIGHT), // 3
+	BTN_STRING(Down, TRSTR_KEYBIND_DOWN), // 4
+	BTN_STRING(Action, TRSTR_KEYBIND_ACTION), // 5
+	BTN_STRING(Cancel, TRSTR_KEYBIND_CANCEL), // 6
+	{ Input:: ToggleChat, TRSTR_KEYBIND_TOGGLECHAT, "Hide chat" }, // 7
+	BTN_STRING(Favorite, TRSTR_KEYBIND_FAVORITE), // 8
 
-	BTN_STRING(Items, TRSTR_KEYBIND_ITEMS),
-	BTN_STRING(Menu, TRSTR_KEYBIND_MENU),
+	BTN_STRING(Items, TRSTR_KEYBIND_ITEMS), // 1
+	BTN_STRING(Menu, TRSTR_KEYBIND_MENU), // 2
+	BTN_STRING(Run, TRSTR_KEYBIND_RUN), // 3
+	BTN_STRING(L, TRSTR_KEYBIND_L), // 4
+	BTN_STRING(R, TRSTR_KEYBIND_R), // 5
+	BTN_STRING(Deactivate, TRSTR_KEYBIND_DEACTIVATE), // 6
+	BTN_STRING(Chat, TRSTR_KEYBIND_CHAT), // 7
+	BTN_STRING(Map, TRSTR_KEYBIND_MAP), // 8
 
-	BTN_STRING(L, TRSTR_KEYBIND_L),
-	BTN_STRING(R, TRSTR_KEYBIND_R),
-	BTN_STRING(Deactivate, TRSTR_KEYBIND_DEACTIVATE),
-	BTN_STRING(Chat, TRSTR_KEYBIND_CHAT),
-	{ Input:: Chat, 60, ""},
-
-	BTN_STRING(Map, TRSTR_KEYBIND_MAP),
-	BTN_STRING(Playing, TRSTR_KEYBIND_PLAYING),
-	{ Input:: E1, TRSTR_KEYBIND_E1, "Emote 1" },
-	{ Input:: E2, TRSTR_KEYBIND_E2, "Emote 2" },
-	{ Input:: E3, TRSTR_KEYBIND_E3, "Emote 3" },
-	{ Input:: E4, TRSTR_KEYBIND_E4, "Emote 4" },
-	{ Input:: MSG, TRSTR_KEYBIND_MSG, "Send message" },
-	{ Input:: MSG, 60, ""},
-
-	{ Input:: L, TRSTR_KEYBIND_L, "Statistics" }
+	
+	BTN_STRING(Playing, TRSTR_KEYBIND_PLAYING), // 1
+	{ Input:: E1, TRSTR_KEYBIND_E1, "Emote 1" }, // 2
+	{ Input:: E2, TRSTR_KEYBIND_E2, "Emote 2" }, // 3
+	{ Input:: E3, TRSTR_KEYBIND_E3, "Emote 3" }, // 4
+	{ Input:: E4, TRSTR_KEYBIND_E4, "Emote 4" }, // 5
+	{ Input:: MSG, TRSTR_KEYBIND_MSG, "Send message" }, // 6
+	{ Input:: L, TRSTR_KEYBIND_L, "Statistics" }, // 7
+		{ Input:: MSG, 60, ""}, // 8
 };
 
 static elementsN(vButtons);
@@ -591,6 +591,14 @@ struct SettingsMenuPrivate
 			for (j = 0; j < vButtonsN; ++j)
 				if (bWidgets[j].vb.code == trg)
 					break;
+
+			if(j >= vButtonsN)
+			{
+			  Debug() << "bWidgets[vButtonsN].vb.code\n";
+			  for(j = 0; j < vButtonsN; ++j)
+			    Debug() << "bWidgets[" << j << "]: " << bWidgets[j].vb.code << "\n";
+			  Debug() << "trg" << trg << "\n";
+			}
 
 			assert(j < vButtonsN);
 

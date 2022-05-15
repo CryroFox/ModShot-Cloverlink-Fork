@@ -35,7 +35,11 @@ RB_METHOD(graphicsUpdate)
 {
 	RB_UNUSED_PARAM;
 
+	rb_gv_set("$graphics_updating", Qtrue);
+
 	rb_thread_call_without_gvl(invokeGraphicsUpdate, NULL, NULL, NULL);
+
+	rb_gv_set("$graphics_updating", Qfalse);
 
 	return Qnil;
 }
